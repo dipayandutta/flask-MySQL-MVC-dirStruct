@@ -2,6 +2,7 @@ from flask import Flask
 from configuration.config import configurations
 from flask_mysqldb import MySQL
 
+
 app = Flask(__name__,template_folder='templates')
 
 app.config['MYSQL_HOST']        = configurations.HOSTNAME
@@ -14,6 +15,7 @@ db = MySQL(app)
 
 # import all views
 from view.views import *
+from controller.control import *
 
 if __name__ == '__main__':
     app.secret_key = configurations.SECRET_KEY
